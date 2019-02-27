@@ -1,10 +1,32 @@
 package linkedList;
 
 /**
+ * Problem description:
+ * 
+ * You are given two non-empty linked lists representing two non-negative integers.
+ * The digits are stored in reverse order and each of their nodes contain a single digit. 
+ * Add the two numbers and return it as a linked list. You may assume the two numbers do 
+ * not contain any leading zero, except the number 0 itself.
+ * 
+ * Example: 
+ * 
+ * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) 
+ * Output: 7 -> 0 -> 8 
+ * Explanation: 342 + 465 = 807.
  *
- * Add two linked lists in reversed order into a third reversed linked list. The solution 
- * pattern involves simultaneously traversing two data structures and updating a third data
- * structure appropriately. 
+ *
+ * Solution summary: 
+ * The solution pattern involves simultaneously traversing two data structures 
+ * and updating a third data structure appropriately. 
+ * 
+ * Time Complexity: let m be the length of the first list and n be the length of the second list,
+ * where m and n are natural numbers. Since the loop traverses both lists simultaneously, the 
+ * execution time will be dominated by whichever list is longer. Therefore, the worst case 
+ * time complexity is O(max(m,n)).
+ * 
+ * Space Complexity: let m and n be as before. Then, the length of the solution list will be
+ * dominated by whichever list is longest. Therefore, the worst case space complexity is 
+ * O(max(m,n)). 
  *
  * pseudocode: 
  * 1) Initialize a dummy node in the solution list to zero. 
@@ -38,10 +60,15 @@ public class AddTwoNumbers {
 		printList(solution);
 	}
 		
-		private static void printList(ListNode solution) {
-			for(ListNode current = solution; current != null; current = current.next) {
-				System.out.print(current.val);
-			}
+	/**
+	 * prints values of a linked list
+	 * 
+	 * @param solution - head node
+	 */
+	private static void printList(ListNode solution) {
+		for(ListNode current = solution; current != null; current = current.next) {
+			System.out.print(current.val);
+		}
 	}
 
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
